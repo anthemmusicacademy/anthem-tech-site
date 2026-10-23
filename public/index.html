@@ -29,9 +29,6 @@
       --orange-light: #fb923c;
     }
 
-    html, body {
-      height: 100%;
-    }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -41,7 +38,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
+      overflow-x: hidden;
       position: relative;
     }
 
@@ -225,6 +222,47 @@
       margin: 0.75rem auto;
     }
 
+    /* Featured work */
+    .work-card {
+      display: block;
+      text-align: left;
+      text-decoration: none;
+      color: inherit;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, rgba(26,58,110,0.45) 0%, rgba(13,32,68,0.6) 100%);
+      border: 1px solid rgba(96,165,250,0.2);
+      border-radius: 18px;
+      padding: 1.5rem 1.75rem;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .work-card:hover {
+      border-color: rgba(249,115,22,0.5);
+      transform: translateY(-2px);
+    }
+
+    .work-card h2 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.4rem;
+    }
+
+    .work-card p {
+      font-size: 0.95rem;
+      color: var(--grey-light);
+      margin-bottom: 0.9rem;
+    }
+
+    .work-card .work-link {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--orange-light);
+    }
+
     /* Subtle bottom fade */
     .fade-bottom {
       position: fixed;
@@ -256,6 +294,13 @@
     <p class="tagline">Creative tech solutions to make life easier</p>
 
     <div class="divider"></div>
+
+    <a class="work-card" href="/work/anthem-music-academy">
+      <p class="contact-label">Featured work</p>
+      <h2>Anthem Music Academy</h2>
+      <p>Four connected apps that let a small team run admissions, classes, payments, marketing and the books. Built by a founder, around how the business already works.</p>
+      <span class="work-link">See all the features &rarr;</span>
+    </a>
 
     <div class="contact-card">
       <p class="contact-label">Get in touch</p>
