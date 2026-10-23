@@ -4,29 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anthem Music Academy Platform | Anthem Tech</title>
-  <meta name="description" content="Four connected apps that run a music school with a small team: lead handling, enrollment, classes, payments, marketing and accounting, built around how the business already works." />
+  <meta name="description" content="Four connected apps that run a music school with a small team. Built founder-first, around how the business already works." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --blue-deep:    #0a1628;
       --blue-dark:    #0d2044;
-      --blue-mid:     #1a3a6e;
       --blue-bright:  #2563eb;
       --blue-light:   #60a5fa;
       --blue-pale:    #bfdbfe;
-      --grey-dark:    #1e293b;
       --grey-mid:     #334155;
       --grey-light:   #94a3b8;
       --white:        #f0f6ff;
       --orange:       #f97316;
       --orange-light: #fb923c;
-      --green:        #34d399;
-      --yellow:       #fbbf24;
-      --red:          #f87171;
       --line:         rgba(96,165,250,0.18);
       --panel:        rgba(13,32,68,0.55);
     }
@@ -37,9 +32,8 @@
       font-family: 'Inter', sans-serif;
       background: var(--blue-deep);
       color: var(--white);
-      line-height: 1.55;
+      line-height: 1.5;
       overflow-x: hidden;
-      position: relative;
     }
 
     body::before {
@@ -48,7 +42,6 @@
       inset: 0;
       background:
         radial-gradient(ellipse 80% 50% at 50% 0%, rgba(37,99,235,0.22) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 40% at 90% 60%, rgba(96,165,250,0.08) 0%, transparent 60%),
         radial-gradient(ellipse 50% 40% at 0% 90%, rgba(249,115,22,0.06) 0%, transparent 50%);
       pointer-events: none;
       z-index: 0;
@@ -69,14 +62,11 @@
     .wrap {
       position: relative;
       z-index: 1;
-      max-width: 880px;
+      max-width: 960px;
       margin: 0 auto;
       padding: 0 16px;
     }
 
-    a { color: var(--blue-light); }
-
-    /* Top bar */
     .topbar {
       display: flex;
       align-items: center;
@@ -90,7 +80,6 @@
       color: var(--white);
       text-decoration: none;
       font-weight: 700;
-      letter-spacing: -0.01em;
     }
     .brand-icon {
       width: 32px;
@@ -103,15 +92,10 @@
       box-shadow: 0 0 14px rgba(37,99,235,0.5);
     }
     .brand-icon svg { width: 19px; height: 19px; }
-    .topbar-cta {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--orange-light);
-      text-decoration: none;
-    }
+    .topbar-cta { font-size: 0.85rem; font-weight: 600; color: var(--orange-light); text-decoration: none; }
 
     /* Hero */
-    .hero { padding: 48px 0 32px; }
+    .hero { padding: 40px 0 8px; text-align: center; }
     .eyebrow {
       font-size: 0.72rem;
       font-weight: 600;
@@ -119,221 +103,88 @@
       text-transform: uppercase;
       color: var(--orange-light);
       text-shadow: 0 0 12px rgba(249,115,22,0.5);
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
     h1 {
-      font-size: clamp(2.2rem, 7vw, 3.6rem);
+      font-size: clamp(2.3rem, 8vw, 4rem);
       font-weight: 900;
       letter-spacing: -0.03em;
       line-height: 1.05;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
       background: linear-gradient(135deg, var(--white) 0%, var(--blue-pale) 45%, var(--blue-light) 75%, var(--orange-light) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    .lede {
-      font-size: clamp(1.05rem, 2.6vw, 1.25rem);
-      font-weight: 300;
-      color: var(--blue-pale);
-      max-width: 640px;
+    .lede { font-size: clamp(1.05rem, 2.6vw, 1.3rem); font-weight: 300; color: var(--blue-pale); }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin: 22px 0 32px;
     }
+    .chip {
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--blue-pale);
+    }
+    .chip.hot { border-color: rgba(249,115,22,0.45); color: var(--orange-light); }
+
+    /* Hero collage */
+    .collage {
+      position: relative;
+      max-width: 820px;
+      margin: 0 auto;
+      padding-right: 14%;
+    }
+    .collage .main {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      border: 1px solid rgba(148,163,184,0.25);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(37,99,235,0.15);
+    }
+    .collage .phone {
+      position: absolute;
+      right: 0;
+      bottom: -24px;
+      width: 24%;
+      height: auto;
+      border-radius: 16px;
+      border: 3px solid #1e293b;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    }
+
     .stats {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 10px;
-      margin-top: 32px;
+      margin: 56px auto 0;
+      max-width: 620px;
+      text-align: center;
     }
-    @media (min-width: 640px) { .stats { grid-template-columns: repeat(4, 1fr); } }
-    .stat {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 14px 16px;
-    }
-    .stat b {
-      display: block;
-      font-size: 1.6rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: var(--white);
-    }
+    .stat b { display: block; font-size: clamp(1.6rem, 6vw, 2.2rem); font-weight: 900; letter-spacing: -0.02em; }
     .stat span { font-size: 0.8rem; color: var(--grey-light); }
 
-    /* Sections */
-    section { padding: 40px 0; }
-    h2 {
-      font-size: clamp(1.5rem, 4.5vw, 2.1rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      line-height: 1.15;
-      margin-bottom: 10px;
-    }
-    .section-intro {
-      color: var(--grey-light);
-      max-width: 620px;
-      margin-bottom: 24px;
-    }
-    .divider {
-      width: 80px;
-      height: 2px;
-      margin: 8px 0 0;
-      background: linear-gradient(90deg, var(--orange), transparent);
-      box-shadow: 0 0 12px rgba(249,115,22,0.6);
-    }
-
-    /* Principles */
-    .principles {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-    @media (min-width: 640px) { .principles { grid-template-columns: repeat(2, 1fr); } }
-    .principle {
-      background: linear-gradient(135deg, rgba(26,58,110,0.4) 0%, rgba(13,32,68,0.6) 100%);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 20px;
-    }
-    .principle h3 {
-      font-size: 1.02rem;
-      font-weight: 700;
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .principle h3 .num {
-      flex-shrink: 0;
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.78rem;
-      background: rgba(249,115,22,0.15);
-      color: var(--orange-light);
-      border: 1px solid rgba(249,115,22,0.35);
-    }
-    .principle p { font-size: 0.93rem; color: var(--grey-light); }
-
-    /* Ecosystem map */
-    .eco {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-      position: relative;
-    }
-    @media (min-width: 640px) {
-      .eco { grid-template-columns: 1fr 1fr; gap: 64px 16px; }
-      .eco-hub {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-      }
-    }
-    .eco-app {
-      display: block;
-      text-decoration: none;
-      color: inherit;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 18px 20px;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .eco-app:hover { border-color: rgba(249,115,22,0.5); transform: translateY(-2px); }
-    .eco-app .who {
-      font-size: 0.7rem;
+    /* Apps */
+    section.app { padding: 48px 0 8px; }
+    .app-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+    h2 { font-size: clamp(1.5rem, 4.5vw, 2rem); font-weight: 800; letter-spacing: -0.02em; }
+    .app-who {
+      font-size: 0.72rem;
       font-weight: 600;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--blue-light);
     }
-    .eco-app h3 { font-size: 1.15rem; font-weight: 800; margin: 4px 0 4px; }
-    .eco-app p { font-size: 0.9rem; color: var(--grey-light); }
-    .eco-app .count { font-size: 0.8rem; color: var(--orange-light); margin-top: 8px; font-weight: 600; }
-    .eco-hub {
-      z-index: 2;
-      justify-self: center;
-      background: radial-gradient(circle, rgba(249,115,22,0.25) 0%, rgba(13,32,68,0.95) 70%);
-      border: 1px solid rgba(249,115,22,0.5);
-      box-shadow: 0 0 30px rgba(249,115,22,0.25);
-      border-radius: 999px;
-      padding: 12px 20px;
-      text-align: center;
-      font-size: 0.82rem;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-    .eco-hub small { display: block; font-weight: 400; color: var(--grey-light); font-size: 0.72rem; }
-    @media (max-width: 639px) { .eco-hub { order: -1; } }
 
-    /* Journey */
-    .journey { list-style: none; position: relative; }
-    .journey::before {
-      content: '';
-      position: absolute;
-      left: 15px;
-      top: 8px;
-      bottom: 8px;
-      width: 2px;
-      background: linear-gradient(var(--blue-light), var(--orange));
-      opacity: 0.5;
-    }
-    .journey li {
-      position: relative;
-      padding: 0 0 18px 46px;
-    }
-    .journey li::before {
-      content: attr(data-n);
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: var(--blue-dark);
-      border: 1px solid var(--blue-light);
-      color: var(--blue-pale);
-      font-size: 0.8rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .journey li b { display: block; font-weight: 600; }
-    .journey li span { font-size: 0.8rem; color: var(--orange-light); font-weight: 600; letter-spacing: 0.02em; }
-    .journey-note {
-      margin-top: 6px;
-      padding: 14px 18px;
-      border-radius: 14px;
-      border: 1px dashed rgba(249,115,22,0.45);
-      color: var(--blue-pale);
-      font-size: 0.95rem;
-    }
-
-    /* App feature sections */
-    .app-head { margin-bottom: 16px; }
-    .app-tag {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--blue-light);
-      margin-bottom: 6px;
-    }
-    .group-title {
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--grey-light);
-      margin: 22px 0 8px;
-    }
     .features { display: flex; flex-direction: column; gap: 8px; }
 
     details.feature {
@@ -342,223 +193,60 @@
       border-radius: 14px;
       transition: border-color 0.2s, background 0.2s;
     }
-    details.feature[open] {
-      border-color: rgba(249,115,22,0.45);
-      background: rgba(13,32,68,0.8);
-    }
+    details.feature[open] { border-color: rgba(249,115,22,0.45); background: rgba(13,32,68,0.85); }
     details.feature summary {
       list-style: none;
       cursor: pointer;
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       gap: 12px;
       padding: 14px 16px;
-      font-size: 0.98rem;
-      color: var(--white);
+      font-size: 1rem;
+      font-weight: 500;
     }
     details.feature summary::-webkit-details-marker { display: none; }
     details.feature summary:focus-visible { outline: 2px solid var(--orange-light); outline-offset: 2px; border-radius: 14px; }
-    .f-name {
-      font-weight: 700;
-      color: var(--blue-pale);
-      white-space: nowrap;
-    }
-    .f-text { flex: 1; min-width: 0; }
-    .chev {
+    .dot {
       flex-shrink: 0;
-      width: 22px;
-      height: 22px;
-      margin-top: 1px;
-      color: var(--orange-light);
-      transition: transform 0.2s;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--blue-light);
+      box-shadow: 0 0 8px rgba(96,165,250,0.7);
     }
+    details[open] .dot { background: var(--orange); box-shadow: 0 0 8px rgba(249,115,22,0.7); }
+    .f-text { flex: 1; min-width: 0; }
+    .chev { flex-shrink: 0; width: 20px; height: 20px; color: var(--orange-light); transition: transform 0.2s; }
     details[open] .chev { transform: rotate(180deg); }
-    .f-body { padding: 0 16px 16px; }
-    .why {
-      font-size: 0.9rem;
-      color: var(--grey-light);
-      margin-top: 12px;
-    }
-    .why b { color: var(--orange-light); font-weight: 600; }
 
-    /* Mock app window */
-    .mock {
-      border-radius: 12px;
+    .shot { padding: 0 12px 12px; }
+    .shot a { display: block; }
+    .shot img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
       border: 1px solid rgba(148,163,184,0.2);
       background: #0b1426;
-      overflow: hidden;
-      font-size: 0.82rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
     }
-    .mock-bar {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 12px;
-      background: rgba(30,41,59,0.8);
-      border-bottom: 1px solid rgba(148,163,184,0.15);
-      font-size: 0.72rem;
-      color: var(--grey-light);
-    }
-    .mock-bar i { width: 8px; height: 8px; border-radius: 50%; background: var(--grey-mid); flex-shrink: 0; }
-    .mock-bar span { margin-left: 6px; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .mock-bar em {
-      font-style: normal;
-      font-size: 0.64rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--orange-light);
-      border: 1px solid rgba(249,115,22,0.35);
-      border-radius: 999px;
-      padding: 1px 7px;
-      flex-shrink: 0;
-    }
-    .mock-body { padding: 12px; }
-
-    .pill {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 600;
-      border-radius: 999px;
-      padding: 2px 8px;
-      white-space: nowrap;
-      background: rgba(96,165,250,0.15);
-      color: var(--blue-pale);
-    }
-    .pill.good { background: rgba(52,211,153,0.15); color: var(--green); }
-    .pill.warn { background: rgba(251,191,36,0.15); color: var(--yellow); }
-    .pill.bad  { background: rgba(248,113,113,0.15); color: var(--red); }
-    .pill.hot  { background: rgba(249,115,22,0.18); color: var(--orange-light); }
-    .muted { color: var(--grey-light); }
-
-    /* pipeline */
-    .m-pipe { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
-    .m-col { background: rgba(30,41,59,0.5); border-radius: 8px; padding: 8px; min-width: 0; }
-    .m-col-h { font-size: 0.7rem; font-weight: 700; color: var(--grey-light); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
-    .m-card { background: #13213b; border: 1px solid rgba(148,163,184,0.15); border-radius: 6px; padding: 7px; margin-bottom: 6px; }
-    .m-card b { display: block; font-size: 0.78rem; overflow-wrap: anywhere; line-height: 1.25; }
-    .m-card small { display: block; font-size: 0.68rem; color: var(--grey-light); margin: 2px 0 4px; }
-
-    /* chat */
-    .m-chat { display: flex; flex-direction: column; gap: 6px; }
-    .m-chat-h { font-size: 0.72rem; color: var(--grey-light); text-align: center; margin-bottom: 4px; }
-    .m-msg { max-width: 82%; padding: 7px 11px; border-radius: 14px; font-size: 0.8rem; line-height: 1.4; }
-    .m-msg em { display: block; font-style: normal; font-size: 0.66rem; opacity: 0.75; margin-bottom: 2px; }
-    .m-msg.us   { align-self: flex-end; background: var(--blue-bright); color: #fff; border-bottom-right-radius: 4px; }
-    .m-msg.them { align-self: flex-start; background: #1f2d47; border-bottom-left-radius: 4px; }
-    .m-msg.sys  { align-self: center; max-width: 100%; background: transparent; border: 1px dashed rgba(249,115,22,0.5); color: var(--orange-light); font-size: 0.72rem; border-radius: 999px; }
-    .m-msg.post { align-self: stretch; max-width: 100%; background: #161f33; border-left: 3px solid var(--blue-light); border-radius: 6px; }
-
-    /* list */
-    .m-list { display: flex; flex-direction: column; }
-    .m-row { display: grid; gap: 8px; align-items: center; padding: 7px 4px; border-bottom: 1px solid rgba(148,163,184,0.1); min-width: 0; }
-    .m-row > * { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .m-row:last-child { border-bottom: 0; }
-    .m-row-h { font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--grey-light); font-weight: 600; }
-
-    /* stats */
-    .m-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 8px; margin-bottom: 10px; }
-    .m-tile { background: rgba(30,41,59,0.55); border-radius: 8px; padding: 9px 10px; }
-    .m-tile small { display: block; font-size: 0.66rem; color: var(--grey-light); text-transform: uppercase; letter-spacing: 0.06em; }
-    .m-tile b { font-size: 1.1rem; font-weight: 800; }
-    .m-tile i { display: block; font-style: normal; font-size: 0.68rem; color: var(--green); }
-    .m-tile.accent { border: 1px solid rgba(249,115,22,0.5); }
-    .m-tile.accent b { color: var(--orange-light); }
-    .m-bars { display: flex; flex-direction: column; gap: 6px; }
-    .m-bar { display: grid; grid-template-columns: 96px 1fr 44px; gap: 8px; align-items: center; font-size: 0.74rem; }
-    .m-bar .track { height: 8px; border-radius: 999px; background: rgba(148,163,184,0.12); overflow: hidden; }
-    .m-bar .fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--blue-bright), var(--blue-light)); }
-    .m-bar span:last-child { text-align: right; color: var(--grey-light); }
-
-    /* flow */
-    .m-flow { display: flex; flex-direction: column; gap: 0; }
-    .m-step { display: flex; gap: 10px; align-items: flex-start; }
-    .m-step .dot { flex-shrink: 0; width: 22px; display: flex; flex-direction: column; align-items: center; }
-    .m-step .dot::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--blue-light); margin-top: 4px; box-shadow: 0 0 8px rgba(96,165,250,0.6); }
-    .m-step .dot::after { content: ''; width: 2px; flex: 1; min-height: 14px; background: rgba(96,165,250,0.3); margin-top: 3px; }
-    .m-step:last-child .dot::after { display: none; }
-    .m-step:last-child .dot::before { background: var(--orange); box-shadow: 0 0 8px rgba(249,115,22,0.6); }
-    .m-step div:last-child { padding-bottom: 10px; }
-    .m-step small { display: block; color: var(--grey-light); font-size: 0.7rem; }
-
-    /* form */
-    .m-form { display: flex; flex-direction: column; gap: 8px; }
-    .m-field small { display: block; font-size: 0.66rem; color: var(--grey-light); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 3px; }
-    .m-field div { background: #13213b; border: 1px solid rgba(148,163,184,0.2); border-radius: 6px; padding: 7px 9px; }
-    .m-btn { align-self: flex-start; background: linear-gradient(135deg, var(--orange), var(--orange-light)); color: #1a0d02; font-weight: 700; border-radius: 8px; padding: 7px 14px; font-size: 0.8rem; }
-
-    /* week */
-    .m-week { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; }
-    .m-day small { display: block; text-align: center; font-size: 0.66rem; color: var(--grey-light); text-transform: uppercase; margin-bottom: 4px; }
-    .m-ev { border-radius: 6px; padding: 5px 6px; margin-bottom: 5px; font-size: 0.68rem; line-height: 1.3; background: rgba(37,99,235,0.25); border-left: 3px solid var(--blue-light); overflow: hidden; }
-    .m-ev.alt { background: rgba(249,115,22,0.15); border-left-color: var(--orange); }
-    .m-ev.off { opacity: 0.5; text-decoration: line-through; }
-
-    /* search */
-    .m-search { background: #13213b; border: 1px solid rgba(96,165,250,0.4); border-radius: 999px; padding: 8px 14px; margin-bottom: 8px; display: flex; gap: 8px; align-items: center; }
-    .m-search::before { content: ''; width: 10px; height: 10px; border: 2px solid var(--grey-light); border-radius: 50%; flex-shrink: 0; }
-
-    /* doc */
-    .m-doc { background: #f4f7fb; color: #1e293b; border-radius: 6px; padding: 14px; }
-    .m-doc .band { height: 6px; border-radius: 3px; background: linear-gradient(90deg, #094F97, #1285C0, #1CC0ED); margin-bottom: 10px; }
-    .m-doc h4 { font-size: 0.9rem; margin-bottom: 8px; }
-    .m-doc .m-row { border-color: rgba(30,41,59,0.1); }
-    .m-doc .m-row-h { color: #64748b; }
-    .m-doc .total { font-weight: 800; }
-
-    /* grid (content generator) */
-    .m-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
-    .m-gt { border-radius: 6px; padding: 6px; font-size: 0.6rem; font-weight: 800; line-height: 1.2; color: #fff; display: flex; align-items: flex-end; text-transform: uppercase; letter-spacing: 0.03em; overflow: hidden; }
-    .m-gt.sq { aspect-ratio: 1; }
-    .m-gt.tall { aspect-ratio: 9 / 16; grid-row: span 2; }
-    .m-gt.wide { aspect-ratio: 16 / 9; grid-column: span 2; }
-    .m-prompt { background: #13213b; border-radius: 8px; padding: 8px 10px; margin-bottom: 8px; border: 1px solid rgba(249,115,22,0.35); }
-
-    /* video */
-    .m-video { aspect-ratio: 16 / 9; border-radius: 8px; background: linear-gradient(135deg, #1a2a4a, #0d1a33); position: relative; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; }
-    .m-video::before { content: ''; width: 0; height: 0; border-left: 18px solid rgba(255,255,255,0.85); border-top: 11px solid transparent; border-bottom: 11px solid transparent; margin-left: 4px; }
-    .m-video .prog { position: absolute; left: 10px; right: 10px; bottom: 10px; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.15); }
-    .m-video .prog::after { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 38%; border-radius: 2px; background: var(--orange); }
-    .m-video .lbl { position: absolute; left: 10px; top: 8px; font-size: 0.68rem; color: var(--blue-pale); }
-
-    /* serp */
-    .m-serp > div { padding: 8px 0; border-bottom: 1px solid rgba(148,163,184,0.1); }
-    .m-serp > div:last-child { border-bottom: 0; }
-    .m-serp small { display: block; color: var(--green); font-size: 0.68rem; }
-    .m-serp b { display: block; color: var(--blue-light); font-weight: 600; }
-    .m-serp p { font-size: 0.72rem; color: var(--grey-light); }
-    .m-serp .first { background: rgba(249,115,22,0.06); border-radius: 6px; padding: 8px; border: 1px solid rgba(249,115,22,0.3); }
-
-    /* quiz */
-    .m-q { font-weight: 600; margin-bottom: 8px; }
-    .m-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 10px; }
-    .m-opt { border: 1px solid rgba(148,163,184,0.25); border-radius: 8px; padding: 7px 9px; font-size: 0.76rem; }
-    .m-opt.on { border-color: var(--orange); background: rgba(249,115,22,0.12); }
-    .m-result { border-radius: 8px; padding: 10px; background: rgba(37,99,235,0.18); border: 1px solid rgba(96,165,250,0.4); }
-
-    /* otp */
-    .m-otp { display: flex; gap: 6px; margin: 8px 0; }
-    .m-otp span { width: 34px; height: 40px; border-radius: 8px; border: 1px solid rgba(96,165,250,0.5); background: #13213b; display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 700; }
-
-    /* matrix */
-    .m-yes { color: var(--green); font-weight: 700; }
-    .m-no  { color: var(--grey-mid); }
+    .shot.tall img { max-width: 300px; margin: 0 auto; }
 
     /* Closing */
     .closing {
-      margin: 24px 0 64px;
+      margin: 64px 0 40px;
+      text-align: center;
       background: linear-gradient(135deg, rgba(26,58,110,0.5) 0%, rgba(13,32,68,0.7) 100%);
       border: 1px solid var(--line);
       border-radius: 20px;
-      padding: 28px 22px;
+      padding: 32px 20px;
       box-shadow: 0 0 0 1px rgba(249,115,22,0.08), 0 8px 40px rgba(0,0,0,0.4);
     }
-    .closing p { color: var(--blue-pale); margin-bottom: 18px; max-width: 600px; }
-    .contact-row { display: flex; flex-wrap: wrap; gap: 10px; }
+    .closing h2 { margin-bottom: 8px; }
+    .closing p { color: var(--blue-pale); margin-bottom: 20px; }
+    .contact-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
       padding: 10px 18px;
       border-radius: 10px;
       font-weight: 700;
@@ -568,7 +256,7 @@
     .btn.primary { background: linear-gradient(135deg, var(--orange), var(--orange-light)); color: #1a0d02; box-shadow: 0 0 20px rgba(249,115,22,0.35); }
     .btn.ghost { border: 1px solid rgba(96,165,250,0.35); color: var(--blue-pale); }
 
-    footer { padding: 0 0 40px; font-size: 0.78rem; color: var(--grey-light); }
+    footer { padding: 0 0 40px; font-size: 0.75rem; color: var(--grey-light); text-align: center; }
   </style>
 </head>
 <body>
@@ -587,96 +275,31 @@
     </header>
 
     <div class="hero">
-      <p class="eyebrow">Case study · Anthem Music Academy</p>
-      <h1>A small team running like a much bigger school.</h1>
-      <p class="lede">Four connected apps that handle the whole business, from the first ad click to the quarterly profit report. Each one was built around how the school already worked, so the team could do more without learning a new job.</p>
+      <p class="eyebrow">Case study</p>
+      <h1>Anthem Music Academy</h1>
+      <p class="lede">One small team. Four connected apps. The whole business.</p>
+      <div class="chips">
+        <span class="chip hot">Founder-first</span>
+        <span class="chip">Built around existing workflows</span>
+        <span class="chip">More output per person</span>
+      </div>
+      <div class="collage">
+        <img class="main" src="/work/ama/panda-lead-brief.webp" width="1600" height="1184" alt="Panda lead brief" />
+        <img class="phone" src="/work/ama/web-mobile.webp" width="900" height="1948" alt="Website on a phone" />
+      </div>
       <div class="stats">
         <div class="stat"><b>4</b><span>connected apps</span></div>
-        <div class="stat"><b id="feature-count">40+</b><span>features, one system</span></div>
-        <div class="stat"><b>1</b><span>shared record per person</span></div>
-        <div class="stat"><b>0</b><span>days of downtime to switch</span></div>
+        <div class="stat"><b id="feature-count">26</b><span>features shown</span></div>
+        <div class="stat"><b>1</b><span>shared database</span></div>
       </div>
     </div>
-
-    <section>
-      <h2>Business founder first development</h2>
-      <p class="section-intro">Most software is built by people who have never run the business it serves. This was built by the person who does, for owner-operators and small teams that can't afford to slow down.</p>
-      <div class="principles">
-        <div class="principle">
-          <h3><span class="num">1</span>Built by someone who runs the business</h3>
-          <p>Every feature started as a real bottleneck hit at the front desk, in the classroom or on the books. Not a guess from a requirements doc.</p>
-        </div>
-        <div class="principle">
-          <h3><span class="num">2</span>Fit the workflow, don't replace it</h3>
-          <p>The team kept working the way that already worked. Software moved to meet them, one workflow at a time, while classes kept running.</p>
-        </div>
-        <div class="principle">
-          <h3><span class="num">3</span>Know what developers don't</h3>
-          <p>Payment plans, make-up classes, instructor pay, why a lead goes cold. That knowledge comes from running a business, and it shapes every screen.</p>
-        </div>
-        <div class="principle">
-          <h3><span class="num">4</span>Measured in hours given back</h3>
-          <p>The test for every feature: does a small team get more done this week? Generic tools add work. These remove it.</p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Four apps, one brain</h2>
-      <p class="section-intro">Each audience gets its own app, and all four share one database. A student is entered once and every app knows them.</p>
-      <div class="eco">
-        <a class="eco-app" href="#panda">
-          <span class="who">For the office</span>
-          <h3>Panda</h3>
-          <p>The command center: leads, students, classes, payments, marketing and the books.</p>
-          <div class="count" data-count="panda"></div>
-        </a>
-        <a class="eco-app" href="#instructors">
-          <span class="who">For instructors</span>
-          <h3>Instructor Portal</h3>
-          <p>Everything a teacher needs for their classes, and nothing they don't.</p>
-          <div class="count" data-count="instructors"></div>
-        </a>
-        <a class="eco-app" href="#students">
-          <span class="who">For students</span>
-          <h3>Student Portal</h3>
-          <p>Classes, recordings, payments and community in one login.</p>
-          <div class="count" data-count="students"></div>
-        </a>
-        <a class="eco-app" href="#website">
-          <span class="who">For the public</span>
-          <h3>Website</h3>
-          <p>Gets found on Google, turns visitors into students and enrolls them online.</p>
-          <div class="count" data-count="website"></div>
-        </a>
-        <div class="eco-hub">One shared database<small>enter once, used everywhere</small></div>
-      </div>
-    </section>
-
-    <section>
-      <h2>One student, start to finish</h2>
-      <p class="section-intro">Here's how a single new student moves through the system. Watch who has to type something in.</p>
-      <ol class="journey">
-        <li data-n="1"><b>Finds the school on Google or sees an ad</b><span>Website</span></li>
-        <li data-n="2"><b>Takes a 60-second quiz and gets a program recommendation</b><span>Website</span></li>
-        <li data-n="3"><b>Gets scored and receives a welcome text within a minute</b><span>Panda</span></li>
-        <li data-n="4"><b>Books a campus tour, which shows up on their record by itself</b><span>Panda</span></li>
-        <li data-n="5"><b>Pays through a custom payment plan link and is enrolled instantly</b><span>Website + Panda</span></li>
-        <li data-n="6"><b>Gets a portal login with their classes already waiting</b><span>Student Portal</span></li>
-        <li data-n="7"><b>Instructor takes attendance, which also logs their hours for payroll</b><span>Instructor Portal</span></li>
-        <li data-n="8"><b>Class recording is published and the student gets a text</b><span>Student Portal</span></li>
-        <li data-n="9"><b>Their tuition and the ad that found them roll into the quarterly report</b><span>Panda</span></li>
-      </ol>
-      <p class="journey-note">Staff type that student's details in zero times. The only human steps are the ones that need a human: the tour, the teaching, and the conversation.</p>
-    </section>
 
     <div id="apps"></div>
 
     <section id="contact">
       <div class="closing">
-        <p class="eyebrow">For owner-operators and small teams</p>
-        <h2>Your business already has a way it works. Let's build around it.</h2>
-        <p>If your team is juggling spreadsheets, sticky notes and five subscriptions that don't talk to each other, we'll map how your business actually runs and build the tools that give your people their hours back.</p>
+        <h2>Run a small team?</h2>
+        <p>We build around how your business already works.</p>
         <div class="contact-row">
           <a class="btn primary" href="mailto:info@anthemtech.io">info@anthemtech.io</a>
           <a class="btn ghost" href="tel:9253055041">925-305-5041</a>
@@ -684,600 +307,77 @@
       </div>
     </section>
 
-    <footer>All names, numbers and messages in the previews are sample data. No real student or business information is shown.</footer>
+    <footer>Screenshots use demo data. No real customer information is shown.</footer>
   </div>
 
   <script>
-    const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-    const pill = (t, tone = '') => `<span class="pill ${tone}">${esc(t)}</span>`;
-    const cell = c => (c && typeof c === 'object') ? (c.pill ? pill(c.pill, c.tone) : `<span class="${c.cls || ''}">${esc(c.t)}</span>`) : `<span>${esc(c)}</span>`;
-
-    const R = {
-      pipeline: m => `<div class="m-pipe">${m.cols.map(c => `
-        <div class="m-col"><div class="m-col-h">${esc(c.t)}</div>${c.cards.map(k => `
-          <div class="m-card"><b>${esc(k.n)}</b><small>${esc(k.s)}</small>${pill(k.score, k.tone)}</div>`).join('')}
-        </div>`).join('')}</div>`,
-
-      chat: m => `<div class="m-chat">${m.head ? `<div class="m-chat-h">${esc(m.head)}</div>` : ''}${m.msgs.map(x => `
-        <div class="m-msg ${x.f}">${x.who ? `<em>${esc(x.who)}</em>` : ''}${esc(x.t)}</div>`).join('')}</div>`,
-
-      list: m => {
-        const cols = m.cols || `repeat(${(m.head || m.rows[0]).length}, minmax(0, 1fr))`;
-        const row = (r, h) => `<div class="m-row${h ? ' m-row-h' : ''}" style="grid-template-columns:${cols}">${r.map(cell).join('')}</div>`;
-        return `${m.search ? `<div class="m-search">${esc(m.search)}</div>` : ''}<div class="m-list">${m.head ? row(m.head, true) : ''}${m.rows.map(r => row(r)).join('')}</div>`;
-      },
-
-      stats: m => `${m.tiles ? `<div class="m-tiles">${m.tiles.map(t => `
-        <div class="m-tile${t.accent ? ' accent' : ''}"><small>${esc(t.l)}</small><b>${esc(t.v)}</b>${t.d ? `<i>${esc(t.d)}</i>` : ''}</div>`).join('')}</div>` : ''}
-        ${m.bars ? `${m.barsTitle ? `<div class="m-col-h">${esc(m.barsTitle)}</div>` : ''}<div class="m-bars">${m.bars.map(b => `
-        <div class="m-bar"><span>${esc(b.l)}</span><div class="track"><div class="fill" style="width:${b.p}%"></div></div><span>${esc(b.v)}</span></div>`).join('')}</div>` : ''}`,
-
-      flow: m => `<div class="m-flow">${m.steps.map(s => `
-        <div class="m-step"><span class="dot"></span><div>${esc(s[0])}${s[1] ? `<small>${esc(s[1])}</small>` : ''}</div></div>`).join('')}</div>`,
-
-      form: m => `<div class="m-form">${m.title ? `<div class="m-q">${esc(m.title)}</div>` : ''}${m.fields.map(f => `
-        <div class="m-field"><small>${esc(f[0])}</small><div>${esc(f[1])}</div></div>`).join('')}
-        ${m.btn ? `<span class="m-btn">${esc(m.btn)}</span>` : ''}${m.after ? `<div class="m-msg sys" style="margin-top:4px">${esc(m.after)}</div>` : ''}</div>`,
-
-      week: m => `<div class="m-week">${m.days.map(d => `
-        <div class="m-day"><small>${esc(d.d)}</small>${d.ev.map(e => `<div class="m-ev ${e.c || ''}">${esc(e.t)}</div>`).join('')}</div>`).join('')}</div>`,
-
-      doc: m => `<div class="m-doc"><div class="band"></div><h4>${esc(m.title)}</h4>${R.list(m)}</div>`,
-
-      grid: m => `<div class="m-prompt">${esc(m.prompt)}</div><div class="m-grid">${m.tiles.map(t => `
-        <div class="m-gt ${t.s}" style="background:${t.bg}">${esc(t.t)}</div>`).join('')}</div>`,
-
-      video: m => `<div class="m-video"><span class="lbl">${esc(m.title)}</span><span class="prog"></span></div>${R.list({ rows: m.chapters, cols: '44px 1fr auto' })}`,
-
-      serp: m => `<div class="m-search">${esc(m.q)}</div><div class="m-serp">${m.results.map((r, i) => `
-        <div class="${i === 0 ? 'first' : ''}"><small>${esc(r.u)}</small><b>${esc(r.t)}</b><p>${esc(r.d)}</p></div>`).join('')}</div>`,
-
-      quiz: m => `<div class="m-q">${esc(m.q)}</div><div class="m-opts">${m.opts.map(o => `
-        <div class="m-opt${o.on ? ' on' : ''}">${esc(o.t)}</div>`).join('')}</div><div class="m-result">${m.result}</div>`,
-
-      otp: m => `<div class="m-q">${esc(m.q)}</div><div class="muted">${esc(m.sub)}</div><div class="m-otp">${m.code.split('').map(c => `<span>${esc(c)}</span>`).join('')}</div>${m.after ? `<div class="m-msg sys">${esc(m.after)}</div>` : ''}`,
-    };
-
-    const icons = {
-      chev: '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>',
-    };
-
-    const Y = { t: '✓', cls: 'm-yes' }, N = { t: '·', cls: 'm-no' };
-
     const APPS = [
       {
-        id: 'panda', tag: 'For the office', name: 'Panda', label: 'Panda',
-        intro: 'The staff command center. Where the owner and front office run admissions, classes, money and marketing from one place.',
-        groups: [
-          {
-            title: 'Bring in students',
-            features: [
-              {
-                n: 'Lead board', t: 'Every inquiry from every source lands on one board, ranked by how likely that person is to enroll.',
-                why: 'Staff call the most promising people first instead of working through an inbox top to bottom.',
-                screen: 'Pipeline',
-                mock: { type: 'pipeline', cols: [
-                  { t: 'New', cards: [{ n: 'Jordan Lee', s: 'Website quiz', score: 'Hot · 82', tone: 'hot' }, { n: 'Priya S.', s: 'Instagram ad', score: 'Warm · 64', tone: 'warn' }] },
-                  { t: 'Talking', cards: [{ n: 'Marcus T.', s: 'Booked a tour', score: 'Hot · 77', tone: 'hot' }, { n: 'Dana W.', s: 'Google search', score: 'Cold · 31' }] },
-                  { t: 'Ready', cards: [{ n: 'Ava Brooks', s: 'Picked a plan', score: 'Hot · 91', tone: 'hot' }] },
-                ] },
-              },
-              {
-                n: 'Lead brief', t: 'One screen tells a rep everything about a person before they pick up the phone.',
-                why: 'No digging through texts, emails and forms. Every call starts informed, no matter who on the team makes it.',
-                screen: 'Lead brief · Jordan Lee',
-                mock: { type: 'flow', steps: [
-                  ['Clicked a Google ad for DJ classes', 'Mon 9:14 am'],
-                  ['Took the quiz: DJ Foundations, weekends, total beginner', 'Mon 9:17 am'],
-                  ['Welcome text sent automatically', 'Mon 9:17 am'],
-                  ['Came back and viewed pricing twice', 'Tue evening'],
-                  ['Booked a campus tour for Saturday 11 am', 'Wed 2:40 pm'],
-                ] },
-              },
-              {
-                n: 'AI admissions assistant', t: 'Staff hand a batch of leads to an AI assistant that texts, follows up and answers questions, then passes ready ones back to a person.',
-                why: 'The team spends its time on conversations that are ready to close. A person always decides who the assistant talks to.',
-                screen: 'Messages · Jordan Lee',
-                mock: { type: 'chat', head: 'Text conversation', msgs: [
-                  { f: 'us', who: 'AI assistant', t: 'Hi Jordan, this is Anthem Music Academy. Saw you were checking out DJ Foundations. Are weekends still best for you?' },
-                  { f: 'them', t: 'yeah saturdays work. how long is it?' },
-                  { f: 'us', who: 'AI assistant', t: '10 weeks, Saturdays 11 to 1. Want to come see the studio first? Tours run Saturday mornings.' },
-                  { f: 'them', t: 'sure this weekend' },
-                  { f: 'sys', t: 'Handed to admissions: tour requested' },
-                ] },
-              },
-              {
-                n: 'Instant follow-up', t: 'New inquiries get a welcome text and a follow-up sequence without anyone having to remember.',
-                why: 'Speed of first contact is the biggest lever in turning a lead into a student, and this never takes a day off.',
-                screen: 'Nurture sequence',
-                mock: { type: 'flow', steps: [
-                  ['Form submitted on the website', 'trigger'],
-                  ['Welcome text from the school number', 'under 1 minute'],
-                  ['Email with the course outline and dates', 'day 2'],
-                  ['Friendly check-in text', 'day 5'],
-                  ['Any reply goes straight to a staff member', 'a person takes over'],
-                ] },
-              },
-              {
-                n: 'Junk filter', t: 'Fake numbers, burner apps and bad-fit sign-ups get flagged automatically before anyone spends time on them.',
-                why: 'Staff time stays on real people, and ad platforms stop counting junk sign-ups as wins.',
-                screen: 'New leads',
-                mock: { type: 'list', head: ['Name', 'Phone check', 'Status'], cols: '1fr 1fr auto', rows: [
-                  ['Riley Chen', 'Real mobile', { pill: 'New', tone: 'good' }],
-                  ['asdf asdf', 'Number not in service', { pill: 'Bad fit', tone: 'bad' }],
-                  ['Sam Patel', 'Real mobile', { pill: 'New', tone: 'good' }],
-                  ['Free Beats', 'Burner app', { pill: 'Bad fit', tone: 'bad' }],
-                ] },
-              },
-              {
-                n: 'Tour tracking', t: 'Tours and calls booked on any team calendar show up on the right person\'s record by themselves.',
-                why: 'Nobody copies calendar invites into the system, and nobody walks into a tour without context.',
-                screen: 'Bookings',
-                mock: { type: 'list', head: ['When', 'Who', 'Type'], cols: '90px 1fr auto', rows: [
-                  ['Sat 11:00', 'Jordan Lee', { pill: 'Campus tour', tone: 'hot' }],
-                  ['Sat 12:00', 'Marcus T.', { pill: 'Campus tour', tone: 'hot' }],
-                  ['Mon 4:30', 'Taylor Kim', { pill: 'Phone call' }],
-                ] },
-              },
-            ],
-          },
-          {
-            title: 'Talk to people',
-            features: [
-              {
-                n: 'Texting and calling', t: 'Staff text and call from the school\'s number right inside the student\'s record, and every message is saved.',
-                why: 'One shared history means anyone on the team can pick up a conversation where someone else left off.',
-                screen: 'Ava Brooks · Messages',
-                mock: { type: 'chat', msgs: [
-                  { f: 'them', t: 'Hey! Is there class this Thursday? It\'s a holiday' },
-                  { f: 'us', who: 'Front desk', t: 'Yes, we\'re open! See you at 7.' },
-                  { f: 'sys', t: 'Call · 4 min · logged to timeline' },
-                  { f: 'them', t: 'Thanks for the help with the payment plan 🙏' },
-                ] },
-              },
-              {
-                n: 'Email', t: 'Branded emails with each person\'s details filled in, sent to one student or a whole class, with opt-outs handled.',
-                why: 'Same tools as texting, so staff don\'t switch apps or copy and paste names.',
-                screen: 'New email',
-                mock: { type: 'form', fields: [
-                  ['To', 'Spring DJ Foundations (14 students)'],
-                  ['Subject', 'See you Saturday, {first name}!'],
-                  ['Preview', 'Hi Riley, class starts this Saturday at 11. Bring headphones...'],
-                ], btn: 'Send to 14' },
-              },
-              {
-                n: 'Team alerts', t: 'New leads, payments and schedule changes post instantly to the right team chat channel.',
-                why: 'The team reacts in minutes without living inside the admin app all day.',
-                screen: 'Team chat',
-                mock: { type: 'chat', msgs: [
-                  { f: 'post', who: '#leads', t: 'New lead: Maya O. · DJ Foundations · Warm (78) · from Instagram' },
-                  { f: 'post', who: '#payments', t: 'Payment received: Sam P. · installment 2 of 4' },
-                  { f: 'post', who: '#scheduling', t: 'Ableton Live 1, session 6 moved to Thursday. Make-up created.' },
-                ] },
-              },
-              {
-                n: 'Search', t: 'Type a name, phone number or class into one search bar and jump straight to it.',
-                why: 'The fastest way to answer a phone call is to have the caller\'s record open before you say hello.',
-                screen: 'Search',
-                mock: { type: 'list', search: '510 555', cols: '1fr auto', rows: [
-                  ['Ava Brooks · (510) 555-0142', { pill: 'Student', tone: 'good' }],
-                  ['Chris N. · (510) 555-0199', { pill: 'Lead', tone: 'warn' }],
-                  ['Text thread with (510) 555-0142', { pill: 'Messages' }],
-                ] },
-              },
-            ],
-          },
-          {
-            title: 'Run the school',
-            features: [
-              {
-                n: 'Classes', t: 'Every class, its sessions, roster, instructor and room in one place, organized by term.',
-                why: 'One source of truth for the schedule, so the website, instructors and students all see the same thing.',
-                screen: 'Spring term',
-                mock: { type: 'week', days: [
-                  { d: 'Mon', ev: [{ t: 'Ableton 1 · 7pm' }] },
-                  { d: 'Tue', ev: [{ t: 'Mixing · 7pm' }, { t: 'Community night', c: 'alt' }] },
-                  { d: 'Wed', ev: [{ t: 'Production · 6pm' }] },
-                  { d: 'Thu', ev: [{ t: 'Ableton 1 · 7pm', c: 'off' }, { t: 'Make-up · 8pm', c: 'alt' }] },
-                  { d: 'Sat', ev: [{ t: 'DJ Found. · 11am' }, { t: 'Tours', c: 'alt' }] },
-                ] },
-              },
-              {
-                n: 'Time clock and payroll', t: 'Instructor hours log themselves from class attendance, so payroll is a quick review instead of a reconstruction.',
-                why: 'No chasing timesheets at the end of the pay period, and no paying for classes that didn\'t happen.',
-                screen: 'Time clock',
-                mock: { type: 'list', head: ['Instructor', 'Hours', 'Source', ''], cols: '1fr 50px 1fr auto', rows: [
-                  ['Alex R.', '12.0', 'Attendance', { pill: 'Approved', tone: 'good' }],
-                  ['Jamie L.', '8.5', 'Attendance', { pill: 'Approved', tone: 'good' }],
-                  ['Morgan P.', '2.0', 'Manual entry', { pill: 'Review', tone: 'warn' }],
-                ] },
-              },
-              {
-                n: 'Permissions', t: 'Each team member sees exactly what their job needs and nothing else.',
-                why: 'New hires get productive on day one without access to the books or every student\'s payment details.',
-                screen: 'Team permissions',
-                mock: { type: 'list', head: ['', 'Owner', 'Front desk', 'Teacher'], cols: '1fr 56px 72px 60px', rows: [
-                  ['Leads and texting', Y, Y, N],
-                  ['Classes and rosters', Y, Y, Y],
-                  ['Payments', Y, Y, N],
-                  ['Accounting', Y, N, N],
-                ] },
-              },
-              {
-                n: 'Recording pipeline', t: 'Class recordings travel from the studio computer to the right students automatically, with a text when they\'re ready.',
-                why: 'What used to be an evening of uploading and emailing links is now a single click to approve.',
-                screen: 'Recordings',
-                mock: { type: 'flow', steps: [
-                  ['Class ends, recording saved in the studio', '9:02 pm'],
-                  ['Uploaded and matched to the right class and session', 'automatic'],
-                  ['Instructor reviews and publishes', 'one click'],
-                  ['Every student in the class gets a text with the link', 'automatic'],
-                ] },
-              },
-            ],
-          },
-          {
-            title: 'Run the money',
-            features: [
-              {
-                n: 'Payment links', t: 'Staff build a custom payment plan in a minute and text a branded pay page; the student is enrolled the moment they pay.',
-                why: 'Every family\'s situation is a little different. Flexibility closes the sale without hours of back-and-forth.',
-                screen: 'New payment link',
-                mock: { type: 'form', fields: [
-                  ['Class', 'DJ Foundations · Spring'],
-                  ['Items', 'Tuition $1,200 · Referral credit -$100'],
-                  ['Plan', '$275 today, then 3 monthly payments'],
-                  ['Pay by', 'Card or bank transfer'],
-                ], btn: 'Create and copy link', after: 'Paid → enrolled, plan scheduled, portal invite sent' },
-              },
-              {
-                n: 'Billing', t: 'See who has paid, who owes and what\'s coming up for every student without logging into the payment processor.',
-                why: 'Hard money conversations get easier when the numbers are clear and in front of you.',
-                screen: 'Billing',
-                mock: { type: 'list', head: ['Student', 'Plan', 'Next', 'Status'], cols: '1fr 70px 60px auto', rows: [
-                  ['Riley Chen', 'Monthly', 'Mar 1', { pill: 'On track', tone: 'good' }],
-                  ['Sam Patel', 'Monthly', 'Feb 15', { pill: 'Card failed', tone: 'bad' }],
-                  ['Ava Brooks', 'Paid in full', '·', { pill: 'Paid', tone: 'good' }],
-                ] },
-              },
-              {
-                n: 'Safe to spend', t: 'One button pulls in payments, ad spend and payroll and shows the owner how much money is actually free to spend.',
-                why: 'Tuition arrives up front but classes happen over months. This keeps the owner from spending money that\'s already promised.',
-                screen: 'Accounting · This term',
-                mock: { type: 'stats', tiles: [
-                  { l: 'Collected', v: '$48,200' },
-                  { l: 'Still owed', v: '$12,600' },
-                  { l: 'Promised lessons', v: '$3,150' },
-                  { l: 'Safe to spend', v: '$9,840', accent: true },
-                ] },
-              },
-              {
-                n: 'Quarter report', t: 'A branded quarterly report shows profit by class and by student, ready to hand to an accountant.',
-                why: 'The owner knows which classes make money before deciding what to run next term.',
-                screen: 'Quarter report PDF',
-                mock: { type: 'doc', title: 'Spring term summary', head: ['Class', 'Students', 'Profit'], cols: '1fr 60px 70px', rows: [
-                  ['DJ Foundations', '14', '$6,410'],
-                  ['Ableton Live 1', '11', '$4,980'],
-                  ['Mixing', '8', '$2,730'],
-                  [{ t: 'Term total', cls: 'total' }, '33', { t: '$14,120', cls: 'total' }],
-                ] },
-              },
-            ],
-          },
-          {
-            title: 'Run the marketing',
-            features: [
-              {
-                n: 'Where students come from', t: 'Every enrollment is traced back to the ad, search, flyer or referral that started it.',
-                why: 'Ad budget moves to what actually produces students, not what produces clicks.',
-                screen: 'Enrollments by source',
-                mock: { type: 'stats', barsTitle: 'Enrollments this term', bars: [
-                  { l: 'Google search', p: 90, v: '12' },
-                  { l: 'Referrals', p: 60, v: '8' },
-                  { l: 'Instagram ads', p: 45, v: '6' },
-                  { l: 'Event QR code', p: 22, v: '3' },
-                  { l: 'Walk-in', p: 15, v: '2' },
-                ] },
-              },
-              {
-                n: 'Ads in one place', t: 'Google and Meta ad campaigns are built, watched and reported on from the same system, with a summary email every morning.',
-                why: 'An owner with ten minutes a day can see what changed and what to do about it.',
-                screen: 'Ads overview',
-                mock: { type: 'stats', tiles: [
-                  { l: 'Spend (7d)', v: '$412' },
-                  { l: 'Leads', v: '23', d: '+4 vs last week' },
-                  { l: 'Cost / student', v: '$188', accent: true },
-                ], bars: [
-                  { l: 'DJ campaign', p: 80, v: '14' },
-                  { l: 'Ableton campaign', p: 40, v: '9' },
-                ] },
-              },
-              {
-                n: 'Content generator', t: 'Type "Instagram post for the spring DJ class" and get on-brand graphics in dozens of sizes, with dates and prices pulled from the schedule.',
-                why: 'A week of design work becomes a few minutes, and the facts are always right.',
-                screen: 'Content studio',
-                mock: { type: 'grid', prompt: 'Instagram post + story for spring DJ Foundations', tiles: [
-                  { s: 'tall', t: 'DJ Foundations · Starts Mar 7', bg: 'linear-gradient(160deg,#094F97,#1CC0ED)' },
-                  { s: 'sq', t: 'Spring DJ', bg: 'linear-gradient(135deg,#1285C0,#094F97)' },
-                  { s: 'sq', t: '10 weeks', bg: 'linear-gradient(135deg,#f97316,#fb923c)' },
-                  { s: 'sq', t: 'Sat 11am', bg: '#0d2044' },
-                  { s: 'wide', t: 'Learn to DJ this spring', bg: 'linear-gradient(90deg,#094F97,#1285C0,#1CC0ED)' },
-                  { s: 'sq', t: 'Enroll', bg: 'linear-gradient(135deg,#1CC0ED,#2563eb)' },
-                ] },
-              },
-              {
-                n: 'Website editor', t: 'Staff change class dates, prices, FAQs and alumni stories on the website without a developer.',
-                why: 'The website stays current because updating it takes thirty seconds, not a support ticket.',
-                screen: 'Website content · Upcoming classes',
-                mock: { type: 'form', fields: [
-                  ['Class', 'DJ Foundations'],
-                  ['Start date', 'March 7'],
-                  ['Spots left', '4'],
-                ], btn: 'Publish to website' },
-              },
-              {
-                n: 'Business Brain', t: 'Ask a plain-English question about the business and get an answer drawn from the real numbers.',
-                why: 'The owner gets answers in seconds without building a report or learning a dashboard.',
-                screen: 'Business Brain',
-                mock: { type: 'chat', msgs: [
-                  { f: 'us', t: 'How many students did Instagram bring in this term, and what did each one cost?' },
-                  { f: 'them', who: 'Business Brain', t: '6 enrollments came from Instagram ads. Spend was $1,140, so about $190 per student, below your Google average of $215.' },
-                ] },
-              },
-            ],
-          },
+        id: 'panda', name: 'Panda', who: 'For the office', h: 1184,
+        features: [
+          ['Every lead ranked by how likely they are to enroll', 'panda-pipeline'],
+          ['Full history on screen before every call', 'panda-lead-brief'],
+          ['AI texts leads and hands warm ones back', 'panda-ai-agent'],
+          ['Every lead and student in one list', 'panda-accounts'],
+          ['Attendance across every class', 'panda-attendance'],
+          ['Class recordings published in one click', 'panda-recordings'],
+          ['On-brand marketing graphics in minutes', 'panda-content'],
+          ['Update the website without a developer', 'panda-cms'],
+          ['Everyone sees only what their job needs', 'panda-permissions'],
         ],
       },
       {
-        id: 'instructors', tag: 'For instructors', name: 'Instructor Portal', label: 'Instructor Portal',
-        intro: 'Teachers get a focused app for their own classes. Everything they do also updates the office automatically.',
-        groups: [{
-          features: [
-            {
-              n: 'Today', t: 'Instructors open one screen and see today\'s classes, who\'s enrolled and what\'s on the agenda.',
-              why: 'Teachers show up prepared without texting the office for a roster.',
-              screen: 'Today',
-              mock: { type: 'list', head: ['Time', 'Class', 'Students'], cols: '60px 1fr 64px', rows: [
-                ['6:00', 'Production · Session 4', '9'],
-                ['7:30', 'Ableton Live 1 · Session 6', '11'],
-                ['9:00', 'Private lesson · Riley C.', '1'],
-              ] },
-            },
-            {
-              n: 'Attendance', t: 'Taking attendance takes one tap per student and logs the instructor\'s hours at the same time.',
-              why: 'One action does two jobs: the school knows who showed up, and payroll is already done.',
-              screen: 'Ableton Live 1 · Session 6',
-              mock: { type: 'list', cols: '1fr auto', rows: [
-                ['Ava Brooks', { pill: 'Present', tone: 'good' }],
-                ['Sam Patel', { pill: 'Present', tone: 'good' }],
-                ['Chris N.', { pill: 'Absent', tone: 'bad' }],
-                ['Taylor Kim', { pill: 'Late', tone: 'warn' }],
-                [{ t: '2 hours logged to your timesheet', cls: 'muted' }, ''],
-              ] },
-            },
-            {
-              n: 'Rescheduling', t: 'Moving a class creates a labeled make-up session everywhere and lets the scheduling team know.',
-              why: 'Students, instructors and the office all see the same updated schedule without a single email.',
-              screen: 'Reschedule session',
-              mock: { type: 'flow', steps: [
-                ['Session 6 · Monday', 'marked cancelled'],
-                ['Make-up for Session 6 · Thursday 8 pm', 'created automatically'],
-                ['Scheduling team notified', 'with the instructor\'s note'],
-              ] },
-            },
-            {
-              n: 'Recordings', t: 'Instructors review, label and publish class recordings, and their students get a text.',
-              why: 'Teachers control what students see, without touching a video editor or an upload site.',
-              screen: 'Session 6 · Recording',
-              mock: { type: 'video', title: 'Part 1 of 2', chapters: [
-                ['0:00', 'Warm-up and review', { pill: 'Published', tone: 'good' }],
-                ['14:20', 'Building a drum rack', { pill: 'Published', tone: 'good' }],
-                ['38:05', 'Q&A', { pill: 'Hidden', tone: 'warn' }],
-              ] },
-            },
-            {
-              n: 'Class messages', t: 'Post an announcement or send a group text to a whole class from the class page.',
-              why: 'Teachers reach students directly without sharing their personal phone number.',
-              screen: 'Ableton Live 1 · Message class',
-              mock: { type: 'chat', msgs: [
-                { f: 'us', who: 'To 11 students', t: 'Reminder: bring your laptop charged tonight. We\'re building full tracks.' },
-                { f: 'sys', t: 'Sent as text · posted to class page' },
-              ] },
-            },
-            {
-              n: 'Private lessons', t: 'Each private-lesson student\'s remaining hours are tracked, so nobody over- or under-teaches a package.',
-              why: 'Lesson packages are prepaid. Clear balances protect both the student and the school.',
-              screen: 'My private students',
-              mock: { type: 'list', head: ['Student', 'Used', 'Left'], cols: '1fr 60px 60px', rows: [
-                ['Riley Chen', '6 hrs', '4 hrs'],
-                ['Devon Ruiz', '9 hrs', '1 hr'],
-                ['Maya Ortiz', '2 hrs', '8 hrs'],
-              ] },
-            },
-            {
-              n: 'Timesheet and studio', t: 'Instructors check their hours, fix mistakes and reserve studio time without emailing the office.',
-              why: 'Small questions that used to interrupt the owner now answer themselves.',
-              screen: 'Studio availability',
-              mock: { type: 'week', days: [
-                { d: 'Mon', ev: [{ t: 'Open' }, { t: 'Booked', c: 'alt' }] },
-                { d: 'Tue', ev: [{ t: 'Booked', c: 'alt' }] },
-                { d: 'Wed', ev: [{ t: 'Open' }, { t: 'Open' }] },
-                { d: 'Thu', ev: [{ t: 'Yours · 2pm', c: 'alt' }] },
-                { d: 'Fri', ev: [{ t: 'Open' }] },
-              ] },
-            },
-          ],
-        }],
+        id: 'instructors', name: 'Instructor Portal', who: 'For teachers', h: 1000,
+        features: [
+          ['Today\'s classes at a glance', 'inst-dashboard'],
+          ['Every session for a class in one place', 'inst-class'],
+          ['Attendance in one tap', 'inst-attendance'],
+          ['Hours log themselves for payroll', 'inst-timesheet'],
+          ['Book studio time without emailing anyone', 'inst-studio'],
+          ['Answer students in the community', 'inst-community'],
+        ],
       },
       {
-        id: 'students', tag: 'For students', name: 'Student Portal', label: 'Student Portal',
-        intro: 'One login for everything a student needs, so the front desk isn\'t answering the same questions all day.',
-        groups: [{
-          features: [
-            {
-              n: 'Dashboard', t: 'Students see their next class, new recordings and announcements the moment they log in.',
-              why: 'Fewer "when is class?" texts to the front desk.',
-              screen: 'Home',
-              mock: { type: 'stats', tiles: [
-                { l: 'Next class', v: 'Sat 11am', accent: true },
-                { l: 'New recordings', v: '2' },
-                { l: 'Announcements', v: '1' },
-              ] },
-            },
-            {
-              n: 'Class recordings', t: 'Every class is recorded and split into chapters, so missing a class never means falling behind.',
-              why: 'Students stay enrolled when life gets busy, and finish what they paid for.',
-              screen: 'DJ Foundations · Session 3',
-              mock: { type: 'video', title: 'Session 3 · Beatmatching', chapters: [
-                ['0:00', 'Review from last week', ''],
-                ['11:40', 'Beatmatching by ear', ''],
-                ['32:15', 'Practice set walkthrough', ''],
-              ] },
-            },
-            {
-              n: 'Self-serve billing', t: 'Students check their payment plan, pay a balance or update a card without calling the office.',
-              why: 'Failed payments get fixed by the student in a minute instead of by staff over a week.',
-              screen: 'Billing',
-              mock: { type: 'list', head: ['Payment', 'Date', ''], cols: '1fr 64px auto', rows: [
-                ['Installment 1', 'Jan 15', { pill: 'Paid', tone: 'good' }],
-                ['Installment 2', 'Feb 15', { pill: 'Paid', tone: 'good' }],
-                ['Installment 3', 'Mar 15', { pill: 'Upcoming' }],
-              ] },
-            },
-            {
-              n: 'Lesson requests', t: 'Requesting a private lesson is a short form that lands straight in the scheduling team\'s channel.',
-              why: 'Requests never get lost in a personal inbox, and students hear back faster.',
-              screen: 'Request a lesson',
-              mock: { type: 'form', fields: [
-                ['Topic', 'Mixing vocals'],
-                ['Times that work', 'Weekday evenings'],
-              ], btn: 'Send request', after: 'Posted to #scheduling' },
-            },
-            {
-              n: 'Community', t: 'A private feed where students share their work and instructors jump in with feedback.',
-              why: 'Students who feel part of a community keep coming back for the next course.',
-              screen: 'Community',
-              mock: { type: 'chat', msgs: [
-                { f: 'them', who: 'Maya O. · Student', t: 'First full track done!! Feedback welcome 🎧' },
-                { f: 'them', who: 'Alex R. · Instructor', t: 'Love the drop. Try pulling the bass back 2 dB in the chorus.' },
-              ] },
-            },
-            {
-              n: 'Events', t: 'Upcoming workshops and community nights are listed with one-tap RSVP.',
-              why: 'Events keep alumni connected and bring friends through the door.',
-              screen: 'Events',
-              mock: { type: 'list', cols: '1fr auto', rows: [
-                ['Tuesday listening session', { pill: 'Going', tone: 'good' }],
-                ['Mixing workshop · Mar 22', { pill: 'RSVP' }],
-                ['Spring showcase · Apr 18', { pill: 'RSVP' }],
-              ] },
-            },
-            {
-              n: 'Instant setup', t: 'New students get a text with a setup link the minute they enroll, and their classes are already waiting.',
-              why: 'No welcome-packet emails to assemble. Day one feels organized.',
-              screen: 'Welcome',
-              mock: { type: 'flow', steps: [
-                ['Payment completes', 'on the website'],
-                ['Text with a personal setup link', 'seconds later'],
-                ['Student sets a password', 'one screen'],
-                ['Classes, schedule and recordings already loaded', 'ready'],
-              ] },
-            },
-          ],
-        }],
+        id: 'students', name: 'Student Portal', who: 'For students', h: 1000,
+        features: [
+          ['Next class, news and lesson hours on login', 'stu-dashboard'],
+          ['Progress through every course', 'stu-courses'],
+          ['Every session recorded, so nobody falls behind', 'stu-course'],
+          ['Recordings split into chapters', 'stu-session'],
+          ['Pay and check plans without calling', 'stu-billing'],
+          ['A community to share work', 'stu-community'],
+        ],
       },
       {
-        id: 'website', tag: 'For the public', name: 'Website', label: 'Website',
-        intro: 'The public front door. Built first to be found by local searchers, then to turn visitors into enrolled students.',
-        groups: [{
-          features: [
-            {
-              n: 'Built to be found', t: 'Every page is built so Google can read it, because local search is how most new students find the school.',
-              why: 'Showing up for "DJ classes near me" is cheaper than any ad.',
-              screen: 'Google search',
-              mock: { type: 'serp', q: 'dj classes near me', results: [
-                { u: 'yourschool.com › dj-classes', t: 'DJ Classes for Beginners | 10-Week Course', d: 'Hands-on DJ training in a real studio. Small classes, weekend and evening options.' },
-                { u: 'example.com › music', t: 'Music Lessons Directory', d: 'Find teachers in your area...' },
-              ] },
-            },
-            {
-              n: 'Path quiz', t: 'A short quiz recommends the right program and sends a scored lead to staff in seconds.',
-              why: 'Visitors get a clear next step, and staff know exactly what each person wants before calling.',
-              screen: 'Find your path',
-              mock: { type: 'quiz', q: 'What do you want to make?', opts: [
-                { t: 'DJ sets', on: true }, { t: 'Original songs' }, { t: 'Better mixes' }, { t: 'Not sure yet' },
-              ], result: '<b>Your match: DJ Foundations</b><br><span class="muted">Starts March 7 · Saturdays</span>' },
-            },
-            {
-              n: 'Online enrollment', t: 'Students pick a class, choose pay in full or monthly, and pay by card or bank, all online.',
-              why: 'Enrollments happen at 11 pm on a Sunday, without anyone on staff awake.',
-              screen: 'Enroll',
-              mock: { type: 'form', title: 'DJ Foundations · Spring', fields: [
-                ['Payment plan', 'Monthly: 4 payments'],
-                ['Pay with', 'Bank transfer (saves you money)'],
-              ], btn: 'Enroll now' },
-            },
-            {
-              n: 'Phone verification', t: 'A texted code confirms each sign-up is a real person before it reaches the team.',
-              why: 'Staff stop calling fake numbers, and the ad platforms learn from real leads only.',
-              screen: 'Verify',
-              mock: { type: 'otp', q: 'Enter the code we texted you', sub: 'Sent to (510) 555-0123', code: '482913', after: 'Verified · lead sent to staff' },
-            },
-            {
-              n: 'Source tracking', t: 'Each visitor\'s first click is remembered, even across phone and laptop, so later enrollments credit the right ad.',
-              why: 'Without this, most enrollments look like "direct traffic" and the owner is guessing where to spend.',
-              screen: 'One visitor',
-              mock: { type: 'flow', steps: [
-                ['Clicks an Instagram ad on their phone', 'Monday'],
-                ['Comes back on a laptop by typing the address', 'Thursday'],
-                ['Enrolls', 'credited to the Instagram ad'],
-              ] },
-            },
-            {
-              n: 'Event sign-up', t: 'A QR code at events opens a sign-up page that drops attendees straight into the contact list.',
-              why: 'Every community night becomes a source of future students instead of a clipboard nobody types up.',
-              screen: 'QR sign-up',
-              mock: { type: 'form', title: 'Stay in touch', fields: [
-                ['Name', 'Devon Ruiz'],
-                ['Phone', '(510) 555-0177'],
-              ], btn: 'Sign me up', after: 'Added to contacts · tagged "Community night"' },
-            },
-          ],
-        }],
+        id: 'website', name: 'Website', who: 'For the public', h: 1000,
+        features: [
+          ['Built to rank on local search', 'web-home'],
+          ['60-second quiz turns visitors into leads', 'web-quiz'],
+          ['Class schedule that updates itself', 'web-classes'],
+          ['Enroll and pay online, any hour', 'web-enroll'],
+          ['Fast on phones', 'web-mobile', 'tall'],
+        ],
       },
     ];
 
-    const total = APPS.reduce((n, a) => n + a.groups.reduce((m, g) => m + g.features.length, 0), 0);
-    document.getElementById('feature-count').textContent = total;
+    const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    const chev = '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>';
 
-    const feature = (f, app) => `
-      <details class="feature">
-        <summary><span class="f-text"><span class="f-name">${esc(f.n)}.</span> ${esc(f.t)}</span>${icons.chev}</summary>
-        <div class="f-body">
-          <div class="mock">
-            <div class="mock-bar"><i></i><i></i><i></i><span>${esc(app.label)} · ${esc(f.screen)}</span><em>Sample data</em></div>
-            <div class="mock-body">${R[f.mock.type](f.mock)}</div>
-          </div>
-          <p class="why"><b>Why it matters:</b> ${esc(f.why)}</p>
-        </div>
-      </details>`;
+    document.getElementById('feature-count').textContent = APPS.reduce((n, a) => n + a.features.length, 0);
 
-    document.getElementById('apps').innerHTML = APPS.map(app => {
-      const count = app.groups.reduce((m, g) => m + g.features.length, 0);
-      const el = document.querySelector(`[data-count="${app.id}"]`);
-      if (el) el.textContent = `${count} features →`;
-      return `
-        <section id="${app.id}">
-          <div class="app-head">
-            <span class="app-tag">${esc(app.tag)}</span>
-            <h2>${esc(app.name)}</h2>
-            <p class="section-intro">${esc(app.intro)} <span class="muted">Tap any line to see it.</span></p>
-          </div>
-          ${app.groups.map(g => `
-            ${g.title ? `<div class="group-title">${esc(g.title)}</div>` : ''}
-            <div class="features">${g.features.map(f => feature(f, app)).join('')}</div>`).join('')}
-        </section>`;
-    }).join('');
+    document.getElementById('apps').innerHTML = APPS.map(app => `
+      <section class="app" id="${app.id}">
+        <div class="app-head"><h2>${esc(app.name)}</h2><span class="app-who">${esc(app.who)}</span></div>
+        <div class="features">${app.features.map(([text, img, kind]) => {
+          const [w, h] = kind === 'tall' ? [900, 1948] : [1600, app.h];
+          const src = `/work/ama/${img}.webp`;
+          return `
+          <details class="feature">
+            <summary><span class="dot"></span><span class="f-text">${esc(text)}</span>${chev}</summary>
+            <div class="shot ${kind || ''}"><a href="${src}" target="_blank" rel="noopener"><img src="${src}" width="${w}" height="${h}" loading="lazy" alt="${esc(text)}" /></a></div>
+          </details>`;
+        }).join('')}</div>
+      </section>`).join('');
   </script>
 </body>
 </html>
