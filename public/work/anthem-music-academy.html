@@ -143,6 +143,7 @@
       margin: 0 auto;
       padding-right: 14%;
     }
+    .collage .frame { position: relative; }
     .collage .main {
       display: block;
       width: 100%;
@@ -161,6 +162,25 @@
       border: 3px solid #1e293b;
       box-shadow: 0 20px 50px rgba(0,0,0,0.6);
     }
+    .collage figcaption {
+      margin-top: 36px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue-light);
+    }
+    .collage-pair {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      max-width: 960px;
+      margin: 32px auto 0;
+    }
+    @media (min-width: 720px) {
+      .collage-pair { grid-template-columns: 1fr 1fr; }
+    }
+    .collage-pair .collage .phone { width: 26%; }
 
     .stats {
       display: grid;
@@ -283,9 +303,22 @@
         <span class="chip">Built around existing workflows</span>
         <span class="chip">More output per person</span>
       </div>
-      <div class="collage">
-        <img class="main" src="/work/ama/panda-lead-brief.webp" width="1600" height="1184" alt="Panda lead brief" />
-        <img class="phone" src="/work/ama/web-mobile.webp" width="900" height="1948" alt="Website on a phone" />
+      <figure class="collage">
+        <div class="frame"><img class="main" src="/work/ama/panda-lead-brief.webp" width="1600" height="1184" alt="Panda lead brief" />
+        <img class="phone" src="/work/ama/web-mobile.webp" width="900" height="1948" alt="Website on a phone" /></div>
+        <figcaption>Panda + Website</figcaption>
+      </figure>
+      <div class="collage-pair">
+        <figure class="collage">
+          <div class="frame"><img class="main" src="/work/ama/inst-timesheet.webp" width="1600" height="1000" alt="Instructor timesheet" />
+          <img class="phone" src="/work/ama/m-inst-attendance.webp" width="600" height="1298" alt="Instructor attendance on a phone" /></div>
+          <figcaption>Instructor Portal</figcaption>
+        </figure>
+        <figure class="collage">
+          <div class="frame"><img class="main" src="/work/ama/stu-dashboard.webp" width="1600" height="1000" alt="Student dashboard" />
+          <img class="phone" src="/work/ama/m-stu-course.webp" width="600" height="1298" alt="Student course sessions on a phone" /></div>
+          <figcaption>Student Portal</figcaption>
+        </figure>
       </div>
       <div class="stats">
         <div class="stat"><b>4</b><span>connected apps</span></div>
