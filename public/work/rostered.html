@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rostered App | Anthem Tech</title>
+  <meta name="description" content="Rostered: a video-first hiring app for hospitality. Job seekers record a 45-second intro, employers scroll, invite and hire. iOS and Android." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue-deep:    #0a1628;
+      --blue-dark:    #0d2044;
+      --blue-bright:  #2563eb;
+      --blue-light:   #60a5fa;
+      --blue-pale:    #bfdbfe;
+      --grey-mid:     #334155;
+      --grey-light:   #94a3b8;
+      --white:        #f0f6ff;
+      --orange:       #f97316;
+      --orange-light: #fb923c;
+      --line:         rgba(96,165,250,0.18);
+      --panel:        rgba(13,32,68,0.55);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--blue-deep);
+      color: var(--white);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(37,99,235,0.22) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 0% 90%, rgba(249,115,22,0.06) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(96,165,250,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(96,165,250,0.035) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+    }
+    .home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .brand-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--blue-bright) 0%, var(--blue-light) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 14px rgba(37,99,235,0.5);
+    }
+    .brand-icon svg { width: 19px; height: 19px; }
+    .topbar-cta { font-size: 0.85rem; font-weight: 600; color: var(--orange-light); text-decoration: none; }
+
+    /* Hero */
+    .hero { padding: 40px 0 8px; text-align: center; }
+    .eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--orange-light);
+      text-shadow: 0 0 12px rgba(249,115,22,0.5);
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: clamp(2.3rem, 8vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 14px;
+      background: linear-gradient(135deg, var(--white) 0%, var(--blue-pale) 45%, var(--blue-light) 75%, var(--orange-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .lede { font-size: clamp(1.05rem, 2.6vw, 1.3rem); font-weight: 300; color: var(--blue-pale); }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin: 22px 0 32px;
+    }
+    .chip {
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--blue-pale);
+    }
+    .chip.hot { border-color: rgba(249,115,22,0.45); color: var(--orange-light); }
+
+    /* Hero collage */
+    .collage {
+      position: relative;
+      max-width: 820px;
+      margin: 0 auto;
+      padding-right: 14%;
+    }
+    .collage .frame { position: relative; }
+    .collage .main {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      border: 1px solid rgba(148,163,184,0.25);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(37,99,235,0.15);
+    }
+    .collage .phone {
+      position: absolute;
+      right: 0;
+      bottom: -24px;
+      width: 24%;
+      height: auto;
+      border-radius: 16px;
+      border: 3px solid #1e293b;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    }
+    .collage figcaption {
+      margin-top: 36px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue-light);
+    }
+    .collage-pair {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      max-width: 960px;
+      margin: 32px auto 0;
+    }
+    @media (min-width: 720px) {
+      .collage-pair { grid-template-columns: 1fr 1fr; }
+    }
+    .collage-pair .collage .phone { width: 26%; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 56px auto 0;
+      max-width: 620px;
+      text-align: center;
+    }
+    .stat b { display: block; font-size: clamp(1.6rem, 6vw, 2.2rem); font-weight: 900; letter-spacing: -0.02em; }
+    .stat span { font-size: 0.8rem; color: var(--grey-light); }
+
+    /* Apps */
+    section.app { padding: 48px 0 8px; }
+    .app-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+    h2 { font-size: clamp(1.5rem, 4.5vw, 2rem); font-weight: 800; letter-spacing: -0.02em; }
+    .app-who {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue-light);
+    }
+
+    .features { display: flex; flex-direction: column; gap: 8px; }
+
+    details.feature {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    details.feature[open] { border-color: rgba(249,115,22,0.45); background: rgba(13,32,68,0.85); }
+    details.feature summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    details.feature summary::-webkit-details-marker { display: none; }
+    details.feature summary:focus-visible { outline: 2px solid var(--orange-light); outline-offset: 2px; border-radius: 14px; }
+    .dot {
+      flex-shrink: 0;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--blue-light);
+      box-shadow: 0 0 8px rgba(96,165,250,0.7);
+    }
+    details[open] .dot { background: var(--orange); box-shadow: 0 0 8px rgba(249,115,22,0.7); }
+    .f-text { flex: 1; min-width: 0; }
+    .chev { flex-shrink: 0; width: 20px; height: 20px; color: var(--orange-light); transition: transform 0.2s; }
+    details[open] .chev { transform: rotate(180deg); }
+
+    .shot { padding: 0 12px 12px; }
+    .shot a { display: block; }
+    .shot img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 1px solid rgba(148,163,184,0.2);
+      background: #0b1426;
+    }
+    .shot.tall img { max-width: 300px; margin: 0 auto; }
+
+    /* Closing */
+    .closing {
+      margin: 64px 0 40px;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(26,58,110,0.5) 0%, rgba(13,32,68,0.7) 100%);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 32px 20px;
+      box-shadow: 0 0 0 1px rgba(249,115,22,0.08), 0 8px 40px rgba(0,0,0,0.4);
+    }
+    .closing h2 { margin-bottom: 8px; }
+    .closing p { color: var(--blue-pale); margin-bottom: 20px; }
+    .contact-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+    }
+    .btn.primary { background: linear-gradient(135deg, var(--orange), var(--orange-light)); color: #1a0d02; box-shadow: 0 0 20px rgba(249,115,22,0.35); }
+    .btn.ghost { border: 1px solid rgba(96,165,250,0.35); color: var(--blue-pale); }
+
+    footer { padding: 0 0 40px; font-size: 0.75rem; color: var(--grey-light); text-align: center; }
+  
+    .phones {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 14px;
+      margin: 40px auto 0;
+      max-width: 720px;
+    }
+    .phones img {
+      width: 30%;
+      max-width: 210px;
+      height: auto;
+      border-radius: 18px;
+      border: 3px solid #1e293b;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.55);
+    }
+    .phones img:nth-child(2) { transform: translateY(-18px); }
+    .shot.phone-shot img { max-width: 300px; margin: 0 auto; border-radius: 18px; border: 3px solid #1e293b; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <a class="home-link" href="/">
+        <span class="brand-icon">
+          <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13 3L22 21H4L13 3Z" fill="none" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M8 15L13 6L18 15" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        Anthem Tech
+      </a>
+      <a class="topbar-cta" href="#contact">Start a project</a>
+    </header>
+
+    <div class="hero">
+      <p class="eyebrow">Case study</p>
+      <h1>Rostered</h1>
+      <p class="lede">Hospitality hiring without the resume.</p>
+      <div class="chips">
+        <span class="chip hot">Video-first hiring</span>
+        <span class="chip">iOS + Android</span>
+        <span class="chip">Job seekers + employers</span>
+      </div>
+      <figure class="collage">
+        <div class="frame">
+          <img class="main" src="/work/rostered-shots/site.webp" width="1600" height="1000" alt="Rostered website" />
+          <img class="phone" src="/work/rostered-shots/feed.webp" width="600" height="1298" alt="Candidate video feed" />
+        </div>
+        <figcaption>Website + App</figcaption>
+      </figure>
+      <div class="phones">
+        <img src="/work/rostered-shots/jobs.webp" width="600" height="1298" alt="Jobs list" />
+        <img src="/work/rostered-shots/pokes.webp" width="600" height="1298" alt="Pokes from job seekers" />
+        <img src="/work/rostered-shots/invites.webp" width="600" height="1298" alt="Interview invites" />
+      </div>
+      <div class="stats">
+        <div class="stat"><b>2</b><span>sides, one app</span></div>
+        <div class="stat"><b>45s</b><span>video intro</span></div>
+        <div class="stat"><b id="feature-count">11</b><span>features shown</span></div>
+      </div>
+    </div>
+
+    <div id="apps"></div>
+
+    <section id="contact">
+      <div class="closing">
+        <h2>Have an app idea?</h2>
+        <p>We build it around how your business already works.</p>
+        <div class="contact-row">
+          <a class="btn primary" href="mailto:info@anthemtech.io">info@anthemtech.io</a>
+          <a class="btn ghost" href="tel:9253055041">925-305-5041</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>Screenshots use demo data. No real user information is shown.</footer>
+  </div>
+
+  <script>
+    const APPS = [
+      {
+        id: 'job-seekers', name: 'Job Seekers', who: 'Free',
+        features: [
+          ['Pick your side: looking for work or hiring', 'start'],
+          ['Sign up in three quick steps', 'signup'],
+          ['Record a 45-second video intro', 'record'],
+          ['Browse hospitality jobs near you', 'jobs'],
+          ['Save a job or poke the employer', 'listing'],
+          ['Interview invites in one inbox', 'invites'],
+        ],
+      },
+      {
+        id: 'employers', name: 'Employers', who: 'Subscription',
+        features: [
+          ['Scroll a feed of candidate videos', 'feed'],
+          ['See a candidate and send an invite', 'candidate'],
+          ['See who is interested in your jobs', 'pokes'],
+          ['Post a job in minutes', 'post-job'],
+          ['Your business page and live listings', 'business'],
+        ],
+      },
+    ];
+
+    const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    const chev = '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>';
+
+    document.getElementById('feature-count').textContent = APPS.reduce((n, a) => n + a.features.length, 0);
+
+    document.getElementById('apps').innerHTML = APPS.map(app => `
+      <section class="app" id="${app.id}">
+        <div class="app-head"><h2>${esc(app.name)}</h2><span class="app-who">${esc(app.who)}</span></div>
+        <div class="features">${app.features.map(([text, img]) => {
+          const src = `/work/rostered-shots/${img}.webp`;
+          return `
+          <details class="feature">
+            <summary><span class="dot"></span><span class="f-text">${esc(text)}</span>${chev}</summary>
+            <div class="shot phone-shot"><a href="${src}" target="_blank" rel="noopener"><img src="${src}" width="600" height="1298" loading="lazy" alt="${esc(text)}" /></a></div>
+          </details>`;
+        }).join('')}</div>
+      </section>`).join('');
+  </script>
+</body>
+</html>
